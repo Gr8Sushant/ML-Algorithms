@@ -55,6 +55,7 @@ if __name__ == "__main__":
         X, y, test_size=0.2, random_state=1234
     )
 
+    #tune learning rate and number of iterations
     regressor = LinearRegression(learning_rate=0.01, n_iters=1000)
     regressor.fit(X_train, y_train)
     predictions = regressor.predict(X_test)
@@ -68,10 +69,11 @@ if __name__ == "__main__":
     y_pred_line = regressor.predict(X)
     cmap = plt.get_cmap("viridis")
 
+    # plotting the samples 
     fig = plt.figure(figsize=(8, 6))
 
-    m1 = plt.scatter(X_train, y_train, color=cmap(0.9), s=10)
-    m2 = plt.scatter(X_test, y_test, color=cmap(0.5), s=10)
+    m1 = plt.scatter(X_train, y_train, color=cmap(0.1), s=10)
+    m2 = plt.scatter(X_test, y_test, color=cmap(0.7), s=10)
 
-    plt.plot(X, y_pred_line, color="black", linewidth=2, label="Prediction")
+    plt.plot(X, y_pred_line, color="green", linewidth=2, label="Prediction")
     plt.show()
